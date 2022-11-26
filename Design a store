@@ -1,0 +1,16 @@
+CREATE TABLE boutique (id INTEGER, description TEXT, color Text, size INTEGER, price NUMERIC);
+INSERT INTO boutique VALUES ( 1, "Dress", "Yellow", 10, 40.99);
+INSERT INTO boutique VALUES ( 2, "Shorts","Orange", 8, 10.99);
+INSERT INTO boutique VALUES ( 3, "Shirt", "White", 6, 15.99);
+INSERT INTO boutique VALUES ( 4, "Skirt", "Turquoise", 8, 18.99);
+INSERT INTO boutique VALUES ( 5, "Pants", "Blue", 10, 29.99);
+INSERT INTO boutique VALUES ( 6, "Hat", "Tan", 0, 9.99);
+INSERT INTO boutique VALUES ( 7, "Belt", "Black", 8, 10.99);
+INSERT INTO boutique VALUES ( 8, "Purse", "Lavender", 0, 60.00);
+INSERT INTO boutique VALUES ( 9, "Dress", "Lavender", 8, 40.99);
+INSERT INTO boutique VALUES ( 10, "Top","Yellow", 8, 8.99);
+
+
+SELECT * FROM boutique ORDER BY price;
+SELECT max(price) FROM boutique; 
+
