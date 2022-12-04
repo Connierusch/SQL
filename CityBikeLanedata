@@ -11,7 +11,21 @@ CREATE TABLE CityBikeLanes (
 
 #Then I entered 60 columns of the Data provided by lecture 44063547 by Carlotte Chaze.
 
-#I viewed the table with some basic queries.
+#I viewed the table with some queries and this CTE;
+
+WITH safety_average_cte AS (
+SELECT street, AVG(safety_rating) as 'rating'
+FROM citybikelanes
+GROUP BY street)
+
+SELECT 
+street,
+rating,
+'safe lane' as 'label'
+FROM safety_average_cte
+WHERE rating >=4
+
+
 
 #Then I used the following Window function to created recommendations for bike lanes to be either Removed, left as-is, or needs improvements; 
 
