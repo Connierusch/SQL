@@ -1,0 +1,24 @@
+#First I created the table.
+CREATE TABLE CityBikeLanes (
+    id             INTEGER PRIMARY KEY,
+    year_installed         NOT NULL,
+    year_updated           NOT NULL,
+    street         REAL    NOT NULL,
+    width_feet     INTEGER NOT NULL,
+    safety_rating  INTEGER NOT NULL,
+    protected      INTEGER NOT NULL
+);
+
+#Then I entered 60 columns of the Data provided by lecture 44063547 by Carlotte Chaze.
+
+#I viewed the table with some basic queries.
+
+#Then I used the following Window function to created recommendations for bike lanes to be either Removed, left as-is, or needs improvements; 
+
+SELECT street, safety_rating,
+AVG(safety_rating) OVER(PARTITION BY street) as "Average_safety_rating",
+CASE WHEN AVG(safety_rating) OVER(PARTITION BY street)>=4 THEN "Leave As-Is"
+WHEN AVG(safety_rating) OVER(PARTITION BY street)<2.5 THEN "Remove"
+ELSE "Improvements Needed"
+END AS "Recommendations"
+FROM CityBikeLanes 
